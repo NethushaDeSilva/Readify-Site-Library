@@ -4,3 +4,39 @@
     margin: 0;
     padding: 0;
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f1e8;  /* Soft paper beige */
+    color: #333333;             /* Calm dark grey */
+    line-height: 1.6;
+}
+
+/* Layout containers */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 2rem;
+}
+
+section {
+    margin-bottom: 1.5rem;
+}
+
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #c8b89a; /* Muted warm beige */
+    padding: 0.75rem 1.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #b09c7a;
+}
