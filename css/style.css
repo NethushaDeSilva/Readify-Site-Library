@@ -40,3 +40,137 @@ section {
     z-index: 100;
     border-bottom: 2px solid #b09c7a;
 }
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #5a412a; /* Coffee brown */
+}
+
+/* Navigation */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0.75rem;
+}
+
+.main-nav a {
+    display: inline-block;
+    color: #333333;
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background: #5a412a; /* Dark coffee brown */
+    color: #fffaf2;      /* Light cream */
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle .bar {
+    width: 20px;
+    height: 2px;
+    background: #333333;
+}
+
+/* Hero */
+.hero {
+    margin-top: 1rem;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #5a412a;
+}
+
+.quote-text {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.quote-book {
+    font-style: italic;
+    color: #7a664f;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* Page headers */
+.page-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+    color: #5a412a;
+}
+
+.page-header p {
+    font-size: 0.98rem;
+    color: #555555;
+}
+
+/* Author of the day card */
+.author-card {
+    display: flex;
+    gap: 1rem;
+    background: #fffaf2;
+    border-radius: 8px;
+    padding: 0.9rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.author-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Forms */
+.simple-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 420px;
+}
+
+.simple-form label {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #5a412a;
+}
+
+.simple-form input,
+.simple-form textarea,
+.book-filters input,
+.book-filters select,
+.random-controls select {
+    padding: 0.45rem;
+    border-radius: 4px;
+    border: 1px solid #bfae93;
+    background: #fffaf2;
+    color: #333333;
+    font-size: 0.95rem;
+}
