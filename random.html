@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Readify | Random Book Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get a random book recommendation based on your preferences.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="images/favicon-192.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="random-page">
+<header class="site-header">
+    <div class="logo">Readify</div>
+    <nav class="main-nav" id="mainNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Book Explorer</a></li>
+            <li><a href="tracker.html">Progress Tracker</a></li>
+            <li><a href="random.html" class="active">Random Book</a></li>
+            <li><a href="flow.html">Reading Flow</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</header>
+
+<main>
+    <section class="page-header reveal">
+        <h1>Random Book Recommender</h1>
+        <p>Pick a genre and length, and we will surprise you.</p>
+    </section>
+
+    <div class="random-controls reveal">
+        <label for="randomGenre">Genre</label>
+        <select id="randomGenre">
+            <option value="any">Any</option>
+            <option value="fiction">Fiction</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="sci-fi">Sci-Fi</option>
+            <option value="mystery">Mystery</option>
+            <option value="non-fiction">Non-Fiction</option>
+        </select>
+
+        <label for="randomLength">Length</label>
+        <select id="randomLength">
+            <option value="any">Any</option>
+            <option value="short">Short (&lt; 200 pages)</option>
+            <option value="medium">Medium (200-400 pages)</option>
+            <option value="long">Long (&gt; 400 pages)</option>
+        </select>
+
+        <button id="pickBookBtn" class="btn">Pick Book</button>
+        <button id="pickAgainBtn" class="btn-secondary">Pick Again</button>
+    </div>
+
+    <section class="random-result reveal" id="randomResult">
+        <h2 id="randomTitle">Your book will appear here.</h2>
+        <p id="randomAuthor"></p>
+        <p id="randomGenreText"></p>
+        <button id="saveToListBtn" class="btn">Save to Reading List</button>
+        <p id="randomMessage" class="form-message"></p>
+    </section>
+
+    <section class="reading-list reveal">
+        <h2>Your Reading List</h2>
+        <ul id="readingList"></ul>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; <span id="yearSpan"></span> Readify.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
