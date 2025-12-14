@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Readify | Reading Progress Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your reading progress with Readify.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="images/favicon-192.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="tracker-page">
+<header class="site-header">
+    <div class="logo">Readify</div>
+    <nav class="main-nav" id="mainNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Book Explorer</a></li>
+            <li><a href="tracker.html" class="active">Progress Tracker</a></li>
+            <li><a href="random.html">Random Book</a></li>
+            <li><a href="flow.html">Reading Flow</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</header>
+
+<main>
+    <section class="page-header reveal">
+        <h1>Reading Progress Tracker</h1>
+        <p>See how close you are to finishing your book.</p>
+    </section>
+
+    <div class="tracker-form-section reveal">
+        <form id="trackerForm" class="simple-form">
+            <label for="bookTitle">Book Title</label>
+            <input type="text" id="bookTitle" required>
+
+            <label for="totalPages">Total Pages</label>
+            <input type="number" id="totalPages" min="1" required>
+
+            <label for="pagesRead">Pages Read</label>
+            <input type="number" id="pagesRead" min="0" required>
+
+            <label for="dailyPages">Daily Reading Speed (pages per day)</label>
+            <input type="number" id="dailyPages" min="1" required>
+
+            <button type="submit" class="btn">Calculate</button>
+            <button type="button" id="saveProgressBtn" class="btn-secondary">Save Progress</button>
+        </form>
+        <p id="trackerMessage" class="form-message"></p>
+
+        <div class="progress-wrapper reveal">
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p id="progressPercent">0% completed</p>
+            <p id="finishEstimate">Estimated finish time will appear here.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; <span id="yearSpan"></span> Readify.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
