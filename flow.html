@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Readify | Reading Flow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your perfect reading flow with cozy sounds and track completed books.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="images/favicon-192.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="flow-page">
+<header class="site-header">
+    <div class="logo">Readify</div>
+    <nav class="main-nav" id="mainNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Book Explorer</a></li>
+            <li><a href="tracker.html">Progress Tracker</a></li>
+            <li><a href="random.html">Random Book</a></li>
+            <li><a href="flow.html" class="active">Reading Flow</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</header>
+
+<main>
+    <section class="page-header reveal">
+        <h1>Reading Flow</h1>
+        <p>Set the mood and track the books you have finished.</p>
+    </section>
+
+    <section class="sound-controls reveal">
+        <h2>Cozy Sounds</h2>
+        <p>Play relaxing background sounds while you read.</p>
+        <button id="playSoundBtn" class="btn">Play Sound</button>
+        <button id="pauseSoundBtn" class="btn-secondary">Pause Sound</button>
+        <audio id="cozyAudio" loop>
+            <source src="cozy-sound.mp3" type="audio/mpeg">
+        </audio>
+        <p id="soundMessage" class="form-message"></p>
+    </section>
+
+    <section class="completed-books reveal">
+        <h2>Completed Books</h2>
+        <form id="completedForm" class="simple-form">
+            <label for="completedTitle">Book Title</label>
+            <input type="text" id="completedTitle" required>
+            <button type="submit" class="btn">Add Completed Book</button>
+        </form>
+        <ul id="completedList"></ul>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; <span id="yearSpan"></span> Readify.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
