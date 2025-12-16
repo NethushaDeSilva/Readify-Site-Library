@@ -497,3 +497,138 @@ function initRandomPage() {
     renderReadingList();
 }
 
+function initTrackerPage() {
+    var form = document.getElementById("trackerForm");
+    var bookTitleInput = document.getElementById("bookTitle");
+    var totalPagesInput = document.getElementById("totalPages");
+    var pagesReadInput = document.getElementById("pagesRead");
+    var dailyPagesInput = document.getElementById("dailyPages");
+    var message = document.getElementById("trackerMessage");
+    var progressBar = document.getElementById("progressBar");
+    var progressPercentText = document.getElementById("progressPercent");
+    var finishEstimate = document.getElementById("finishEstimate");
+    var saveBtn = document.getElementById("saveProgressBtn");
+
+    var saved = getFromLocalStorage("readingProgress");
+    if (saved) {
+        bookTitleInput.value = saved.title;
+        totalPagesInput.value = saved.total;
+        pagesReadInput.value = saved.read;
+        dailyPagesInput.value = saved.daily;
+        updateProgress(saved.total, saved.read, saved.daily, progressBar, progressPercentText, finishEstimate);
+    }
+
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var total = parseInt(totalPagesInput.value, 10);
+            var read = parseInt(pagesReadInput.value, 10);
+            var daily = parseInt(dailyPagesInput.value, 10);
+
+            if (isNaN(total) || isNaN(read) || isNaN(daily)) {
+                message.textContent = "Please enter valid numbers.";
+                return;
+            }
+
+            if (read > total) {
+                message.textContent = "Pages read cannot be more than total pages.";
+                return;
+            }
+
+            updateProgress(total, read, daily, progressBar, progressPercentText, finishEstimate);
+            message.textContent = "Progress updated.";
+        });
+    }
+
+    if (saveBtn) {
+        saveBtn.addEventListener("click", function () {
+            var progress = {
+                title: bookTitleInput.value,
+                total: parseInt(totalPagesInput.value, 10),
+                read: parseInt(pagesReadInput.value, 10),
+                daily: parseInt(dailyPagesInput.value, 10)
+            };
+            saveToLocalStorage("readingProgress", progress);
+            message.textContent = "Progress saved locally.";
+        });
+    }
+}
+
+function updateProgress(total, read, daily, bar, percentText, finishText) {
+    if (!bar || !percentText || !finishText || !total || total <= 0) {
+        return;
+    }
+
+    var percent = Math.round((read / total) * 100);
+    if (percent < 0) {
+        percent = 0;
+    }
+    if (percent > 100) {
+        percent = 100;
+    }
+
+    bar.style.width = percent + "%";
+    percentText.textContent = percent + "% completed";
+
+    var remaining = total - read;
+    if (daily && daily > 0) {
+        var days = Math.ceil(remaining / daily);
+        finishText.textContent = "Estimated finish time: about " + days + " day(s).";
+    } else {
+        finishText.textContent = "Enter your daily reading speed to see an estimate.";
+    }
+}
+
+
+function initFlowPage() {
+    var playBtn = document.getElementById("playSoundBtn");
+    var pauseBtn = document.getElementById("pauseSoundBtn");
+    var audio = document.getElementById("cozyAudio");
+    var soundMessage = document.getElementById("soundMessage");
+
+    if (playBtn && audio) {
+        playBtn.addEventListener("click", function () {
+            audio.play();
+            soundMessage.textContent = "Cozy sound is playing.";
+        });
+    }
+
+    if (pauseBtn && audio) {
+        pauseBtn.addEventListener("click", function () {
+            audio.pause();
+            soundMessage.textContent = "Sound paused.";
+        });
+    }
+
+    var form = document.getElementById("completedForm");
+    var titleInput = document.getElementById("completedTitle");
+    var list = document.getElementById("completedList");
+
+    function renderCompleted() {
+        var data = getFromLocalStorage("completedBooks") || [];
+        list.innerHTML = "";
+        var i;
+        for (i = 0; i < data.length; i++) {
+            var li = document.createElement("li");
+            li.textContent = data[i];
+            list.appendChild(li);
+        }
+    }
+
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var title = titleInput.value.trim();
+            if (title === "") {
+                return;
+            }
+            var data = getFromLocalStorage("completedBooks") || [];
+            data.push(title);
+            saveToLocalStorage("completedBooks", data);
+            titleInput.value = "";
+            renderCompleted();
+        });
+    }
+
+    renderCompleted();
+}
