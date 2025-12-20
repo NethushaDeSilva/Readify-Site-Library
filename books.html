@@ -35,8 +35,11 @@
         <p>Search, filter and explore books.</p>
     </section>
 
-    <div class="book-filters reveal">
+    <section class="book-filters reveal">
+        <label for="searchInput" class="sr-only">Search by title or author</label>
         <input type="text" id="searchInput" placeholder="Search by title or author">
+        
+        <label for="genreFilter" class="sr-only">Filter by genre</label>
         <select id="genreFilter">
             <option value="all">All Genres</option>
             <option value="fiction">Fiction</option>
@@ -45,16 +48,19 @@
             <option value="mystery">Mystery</option>
             <option value="non-fiction">Non-Fiction</option>
         </select>
+        
         <button id="clearFilters" class="btn-secondary">Clear</button>
-    </div>
+    </section>
 
-    <div class="book-grid reveal" id="bookGrid">
-    </div>
+    <h2 class="sr-only">Book Collection</h2>
+
+    <section class="book-grid reveal" id="bookGrid">
+    </section>
 
     <div id="bookModal" class="modal">
         <div class="modal-content">
             <span id="modalClose" class="modal-close">&times;</span>
-            <h2 id="modalTitle">Book Title Loading....</h2>
+            <h2 id="modalTitle"></h2>
             <p id="modalAuthor"></p>
             <p id="modalSynopsis"></p>
             <h3>Sequels &amp; Prequels</h3>
@@ -63,9 +69,8 @@
             <table class="ratings-table">
                 <thead>
                 <tr>
-                    <th>Reviewer</th>
-                    <th>Rating</th>
-                    <th>Comment</th>
+                    <th scope="col">Reviewer</th> <th scope="col">Rating</th>
+                    <th scope="col">Comment</th>
                 </tr>
                 </thead>
                 <tbody id="modalRatingsBody">
