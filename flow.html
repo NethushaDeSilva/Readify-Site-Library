@@ -36,25 +36,49 @@
     </section>
 
     <section class="sound-controls reveal">
-        <h2>Cozy Sounds</h2>
-        <p>Play relaxing background sounds while you read.</p>
-        <button id="playSoundBtn" class="btn">Play Sound</button>
-        <button id="pauseSoundBtn" class="btn-secondary">Pause Sound</button>
-        <audio id="cozyAudio" loop>
-            <source src="cozy-sound.mp3" type="audio/mpeg">
+    <h2>Cozy Ambience</h2>
+    <p>Toggle sounds to create your perfect reading environment.</p>
+    
+    <div class="sound-grid">
+        <button class="btn-sound" data-sound="rain" aria-label="Toggle Rain Sound">
+            <span class="icon">🌧️</span>
+            <span>Rain</span>
+        </button>
+        <audio id="audio-rain" loop preload="auto">
+            <source src="sounds/rain.mp3" type="audio/mpeg">
         </audio>
-        <p id="soundMessage" class="form-message"></p>
-    </section>
+
+        <button class="btn-sound" data-sound="fireplace" aria-label="Toggle Fireplace Sound">
+            <span class="icon">🔥</span>
+            <span>Fireplace</span>
+        </button>
+        <audio id="audio-fireplace" loop preload="auto">
+            <source src="sounds/fireplace-music.mp3" type="audio/mpeg">
+        </audio>
+
+        <button class="btn-sound" data-sound="music" aria-label="Toggle Lo-Fi Music">
+            <span class="icon">🎵</span>
+            <span>Music</span>
+        </button>
+        <audio id="audio-music" loop preload="auto">
+            <source src="sounds/cozy-music-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+</section>
 
     <section class="completed-books reveal">
-        <h2>Completed Books</h2>
-        <form id="completedForm" class="simple-form">
-            <label for="completedTitle">Book Title</label>
-            <input type="text" id="completedTitle" required>
-            <button type="submit" class="btn">Add Completed Book</button>
-        </form>
-        <ul id="completedList"></ul>
-    </section>
+    <h2>Completed Books</h2>
+    <form id="completedForm" class="simple-form">
+        <label for="completedTitle">Book Title</label>
+        
+        <select id="completedTitle" required>
+            <option value="" disabled selected>Select a book...</option>
+            </select>
+
+        <button type="submit" class="btn">Add Completed Book</button>
+    </form>
+    <ul id="completedList"></ul>
+</section>
 </main>
 
 <footer class="site-footer">

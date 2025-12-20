@@ -35,10 +35,12 @@
         <p>See how close you are to finishing your book.</p>
     </section>
 
-    <div class="tracker-form-section reveal">
+    <section class="tracker-form-section reveal">
         <form id="trackerForm" class="simple-form">
             <label for="bookTitle">Book Title</label>
-            <input type="text" id="bookTitle" required>
+            <select id="bookTitle" required>
+                <option value="" disabled selected>Select a book...</option>
+                </select>
 
             <label for="totalPages">Total Pages</label>
             <input type="number" id="totalPages" min="1" required>
@@ -49,19 +51,26 @@
             <label for="dailyPages">Daily Reading Speed (pages per day)</label>
             <input type="number" id="dailyPages" min="1" required>
 
-            <button type="submit" class="btn">Calculate</button>
+            <button type="submit" class="btn">Calculate Preview</button>
             <button type="button" id="saveProgressBtn" class="btn-secondary">Save Progress</button>
         </form>
+        
         <p id="trackerMessage" class="form-message"></p>
 
         <div class="progress-wrapper reveal">
+            <h3>Current Calculation</h3>
             <div class="progress-bar-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
             <p id="progressPercent">0% completed</p>
             <p id="finishEstimate">Estimated finish time will appear here.</p>
         </div>
-    </div>
+
+        <div class="reveal" style="margin-top: 2rem;">
+            <h2>My Active Reads</h2>
+            <ul id="trackedList" class="book-progress-list"></ul>
+        </div>
+    </section>
 </main>
 
 <footer class="site-footer">
