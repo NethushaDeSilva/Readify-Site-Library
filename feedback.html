@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Readify | Feedback & FAQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Send feedback to Readify and read common FAQs.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="images/favicon-192.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="feedback-page">
+<header class="site-header">
+    <div class="logo">Readify</div>
+    <nav class="main-nav" id="mainNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Book Explorer</a></li>
+            <li><a href="tracker.html">Progress Tracker</a></li>
+            <li><a href="random.html">Random Book</a></li>
+            <li><a href="flow.html">Reading Flow</a></li>
+            <li><a href="feedback.html" class="active">Feedback</a></li>
+        </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</header>
+
+<main>
+    <section class="page-header reveal">
+        <h1>Feedback</h1>
+        <p>Tell us what you think about Readify.</p>
+    </section>
+
+    <div class="feedback-form-section reveal">
+        <form id="feedbackForm" class="simple-form">
+            <label for="feedbackName">Name</label>
+            <input type="text" id="feedbackName" required>
+
+            <label for="feedbackEmail">Email</label>
+            <input type="email" id="feedbackEmail" required>
+
+            <label for="feedbackMessage">Message</label>
+            <textarea id="feedbackMessage" rows="4" required></textarea>
+
+            <button type="submit" class="btn">Send Feedback</button>
+        </form>
+        <p id="feedbackStatus" class="form-message"></p>
+    </div>
+
+    <section class="faq-section reveal">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">What is Readify?</button>
+            <div class="faq-answer">
+                <p>Readify is a simple platform that helps you discover books, track reading progress, and stay motivated.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Do I need an account?</button>
+            <div class="faq-answer">
+                <p>No. Your data is stored locally in your browser using localStorage.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Can I access my data on other devices?</button>
+            <div class="faq-answer">
+                <p>Not yet. For this version, data is stored only on the device you use.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; <span id="yearSpan"></span> Readify.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
